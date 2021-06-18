@@ -20,7 +20,7 @@
                 <td>{{item.section}}</td>
                 <td>{{item.content}}</td>
                 <td>R$ {{item.price}}</td>
-                <td><a href="#" class="btn btn-outline-danger btn-sm">Editar</a></td>
+                <td><a href="/update_food/{{item.id}}" class="btn btn-outline-danger btn-sm">Editar</a></td>
                 <td><a href="/delete_food/{{item.id}}" class="btn btn-outline-danger btn-sm">Deletar</a></td>
             </tr>
             {% endfor %}

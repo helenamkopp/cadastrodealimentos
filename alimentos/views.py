@@ -16,6 +16,14 @@ def create_food(request):
 
     return render(request, 'form_food.html', {'form': form})
 
+def update_food(request, id):
+    foods = Food.objects.get(id=id)
+    form = FoodForm(request.POST or None, instance=foods)
+    if form.is_valid():
+        form.save()
+        return redirect('food')
+
+    return render(request, 'form_food.html', {'form': form})
 
 def delete_food(request, id):
     food = Food.objects.get(id=id)
