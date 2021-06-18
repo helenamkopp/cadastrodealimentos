@@ -15,3 +15,9 @@ def create_food(request):
         return redirect('food')
 
     return render(request, 'form_food.html', {'form': form})
+
+
+def delete_food(request, id):
+    food = Food.objects.get(id=id)
+    food.delete()
+    return redirect('food')
