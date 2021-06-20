@@ -41,8 +41,9 @@ class TestAlimentos(TestCase):
         response = self.client.get('/create_food/')
         self.assertTemplateUsed(response, 'form_food.html')
     
-    # def test_template_read_all(self):
-    #     pass
+    def test_template_read_all(self):
+        response = self.client.get('/food/')
+        self.assertTemplateUsed(response, 'food.html')
 
     # def test_template_update(self):
     #     pass
