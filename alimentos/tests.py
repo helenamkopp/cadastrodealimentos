@@ -1,3 +1,4 @@
+from unittest import result
 from django.http import response
 from django.test import TestCase
 from django.urls import reverse
@@ -22,9 +23,11 @@ class TestAlimentos(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_route_update(self):
-        pass
+        result = Food.objects.last()
+        response = self.client.get(f'/update_food/{result.id}')
+        self.assertEqual(response.status_code, 200)
 
-    def test_route_delete(self):
-        pass
+    # def test_route_delete(self):
+    #     pass
 
 
