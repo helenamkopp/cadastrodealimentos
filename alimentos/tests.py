@@ -45,9 +45,11 @@ class TestAlimentos(TestCase):
         response = self.client.get('/food/')
         self.assertTemplateUsed(response, 'food.html')
 
-    # def test_template_update(self):
-    #     pass
+    def test_template_update(self):
+        result = Food.objects.last()
+        response = self.client.get(f'/update_food/{result.id}')
+        self.assertTemplateUsed(response, 'form_food.html')
 
-    # def test_template_delete(self):
-    #     pass
+    def test_template_delete(self):
+        pass
 
