@@ -17,8 +17,9 @@ class TestAlimentos(TestCase):
         response = self.client.get('/create_food/')
         self.assertEqual(response.status_code, 200)
 
-    def test_route_read(self):
-        pass
+    def test_route_read_all(self):
+        response = self.client.get('/food/')
+        self.assertEqual(response.status_code, 200)
 
     def test_route_update(self):
         pass
