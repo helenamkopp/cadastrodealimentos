@@ -37,21 +37,36 @@ class TestAlimentos(TestCase):
 
     #Views tests
 
+
     def test_template_create(self):
         response = self.client.get('/create_food/')
         self.assertTemplateUsed(response, 'form_food.html')
     
+
     def test_template_read_all(self):
         response = self.client.get('/food/')
         self.assertTemplateUsed(response, 'food.html')
+
 
     def test_template_update(self):
         result = Food.objects.last()
         response = self.client.get(f'/update_food/{result.id}')
         self.assertTemplateUsed(response, 'form_food.html')
 
+
     def test_template_delete(self):
         result = Food.objects.last()
         response = self.client.post(f'/delete_food/{result.id}')
         self.assertTemplateNotUsed(response, None)
+
+    
+    # Models Test
+    def test_model(self):
+        food = Food.objects.get(name='Banana')
+        self.assertEqual(food.price_food(), 'The Banana cost 2.95')
+
+
+
+    
+
 
