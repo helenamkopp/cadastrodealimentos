@@ -51,5 +51,7 @@ class TestAlimentos(TestCase):
         self.assertTemplateUsed(response, 'form_food.html')
 
     def test_template_delete(self):
-        pass
+        result = Food.objects.last()
+        response = self.client.post(f'/delete_food/{result.id}')
+        self.assertTemplateNotUsed(response, None)
 
