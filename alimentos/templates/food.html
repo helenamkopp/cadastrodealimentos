@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table class="table">
+<div class="table-responsive">
+<table class="table table-bordered table-light table-hover">
     <thead>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Marca</th>
             <th scope="col">Seção</th>
@@ -15,15 +17,19 @@
         <tbody>
             {%for item in foods%}
             <tr>
+                <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.brand}}</td>
                 <td>{{item.section}}</td>
                 <td>{{item.content}}</td>
                 <td>R$ {{item.price}}</td>
-                <td><a href="/update_food/{{item.id}}" class="btn btn-outline-danger btn-sm">Editar</a></td>
-                <td><a href="/delete_food/{{item.id}}" class="btn btn-outline-danger btn-sm">Deletar</a></td>
+                <td>
+                    <a href="/update_food/{{item.id}}" class="btn btn-outline-secondary btn-sm">Editar</a>
+                    <a href="/delete_food/{{item.id}}" class="btn btn-outline-secondary btn-sm">Deletar</a>
+                 </td>
             </tr>
             {% endfor %}
         </tbody>
 </table>
+</div>
 {% endblock %}

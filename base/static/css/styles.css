@@ -58,6 +58,9 @@ body nav ul li a.nav-link:hover{
     color: #ABC6FF;
 }
 
-body.container-home{
-    align-items: center;
+body section.container-home p {
+    background-color: red;
 }
+
+
+
